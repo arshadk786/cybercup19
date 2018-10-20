@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<link  href="dist/jquery.fancybox.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+    
+     <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <title>CyberCup | 2018</title>
+  <meta name="description" content="">
+  <!--      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#333333">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="img/plogo2k15.png">
+  <link rel="shortcut icon" href="img/plogo2k15.png" type="image/x-icon" />
+    <style>
+    #overlay {
+        position: fixed;
+        background: rgba(0,0,0,0.8);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .hide {
+        display: none;
+    }
+img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* 
+  This is the starting grid for each video with thumbnails 4 across for the largest screen size.
+  It's important to use percentages or there may be gaps on the right side of the page. 
+  */
+
+  .video {
+    background: #fff;
+    padding-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    width: 23%; /* Thumbnails 4 across */
+    margin: 1%;
+    float: left;
+  }
+
+   /* 
+   These keep the height of each video thumbnail consistent between YouTube and Vimeo.
+   Each can have thumbnail sizes that vary by 1px and are likely break your layout. 
+   */
+
+  .video figure {
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+
+  .video figure a {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height: 0;
+  }
+
+  /* Media Queries - This is the responsive grid. */
+
+  @media (max-width: 1024px) {
+    .video {
+      width: 31.333%; /* Thumbnails 3 across */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .video {
+      width: 48%; /* Thumbnails 2 across */
+    }
+  }
+
+  @media (max-width: 360px) {
+    .video {
+      display: block;
+      width: 96%; /* Single column view. */
+      margin: 2%; /* The smaller the screen, the smaller the percentage actually is. */
+      float: none;
+    }
+  }
+
+  /* These are my preferred rollover styles. */
+
+  
+    
+</style>
+
+<script>
+  $(document).ready(function(){ 
+	$('body').find('img[src$="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"]').remove();
+    }); 
+    $(window).load(function() {
+     $('#overlay').addClass('hide');
+    });
+</script>
+    <style media="screen">
+    
+    
+
+    .sponsor-container {
+      overflow: ;
+    }
+
+    .scroll-down {
+      z-index: 10;
+    }
+
+    {
+      background-color: #000000;
+      background-image: url('img/load.gif');
+      background-size: cover;
+      float: left;
+      position: absolute;
+      z-index: 25;
+        height: 100%;
+        width: 100%;
+    }
+
+    .loader-box {
+      width: 500px;
+      height: auto;
+      margin: auto auto;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -200px;
+      margin-top: -50px;
+      box-sizing: border-box;
+    }
+
+    .loader-message {
+      float: right;
+      height: 75px;
+      margin-top: -50px;
+      box-sizing: border-box;
+      text-align: left;
+      width: 80%;
+      color: #fff;
+      font-family: Helvetica, Arial, sans-serif;
+      font-variant: small-caps;
+      font-size: 24px;
+    }
+
+    .loading {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: solid 10px rgba(255, 255, 255, 0.2);
+      border-top-color: #FFF;
+      animation: spin 1s infinite linear;
+    }
+#loading-screen {
+    background: url('img/load.gif') no-repeat center center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+        #preloader  {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: #fff;
+     z-index: 99;
+    height: 100%;
+ }
+
+#status  {
+     width: 100%;
+     height: 100%;
+     
+     left: 50%;
+     top: 50%;
+     background-image: url(img/load.gif);
+     background-repeat: no-repeat;
+     background-position: center;
+    background-size: cover;
+     margin: 0 0 0 0;
+ }
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media only screen and (min-width: 320px) and (max-width:549px) {
+      .loader-box {
+        margin-left: -240px;
+      }
+      .loading {
+        position: relative;
+        bottom: 80px;
+        left: 40%;
+      }
+    } .scroll-down {
+      z-index: 10;
+    }
+  </style>
+     <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+ <link href="css/video.css" rel="stylesheet">
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>CYBER CUP</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700,900" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="css/owl.theme.default.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+			  <script src="https://oss.maxcdn.com/ht,ml5shiv/3.7.3/html5shiv.min.js"></script>
+			  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<![endif]-->
+    
+</head>
+<body>
+
+ <div id="preloader">
+  <div id="status"></div>
+</div>
+
+ 
+
+  <div class="scroll-down">
+ <div style="margin-top: -500px; margin-bottom: 200px"> <a class="ct-btn-scroll ct-js-btn-scroll" href="#about"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png"></a>
+         </div>
+  </div>
+    
+	<!-- Header --><header class="top-bar ">
+	<header id="header" class="transparent-navbar">
+		<!-- container -->
+		<div class="container">
+			<!-- navbar header -->
+			<div class="navbar-header">
+				<!-- Logo -->
+				<div class="navbar-brand">
+					<a class="logo" href="index.html">
+						<img class="logo-img" src="./img/logo.png" alt="logo">
+						<img class="logo-alt-img" src="./img/logo.jpg" alt="logo">
+					</a>
+				</div>
+				<!-- /Logo -->
+
+				<!-- Mobile toggle -->
+				<button class="navbar-toggle">
+						<i class="fa fa-bars"></i>
+					</button>
+				<!-- /Mobile toggle -->
+			</div>
+			<!-- /navbar header -->
+
+			<!-- Navigation -->
+			<nav id="nav">
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="#about">About</a></li>
+                    <li><a href="#events">Events</a></li>
+					<li><a href="#schedule">Schedule</a></li>
+					<li><a href="#speakers">Speakers</a></li>
+					<li><a href="sponsor.html">Sponsors</a></li>
+                    <li><a href="blog.html">Team</a></li>
+					<li><a href="#contact-us">Contact</a></li>
+					<li><a href="blog.html">Blog</a></li>
+				</ul>
+			</nav>
+			<!-- /Navigation -->
+		</div>
+		<!-- /container -->
+	</header>
+    </header>
+	<!-- /Header -->
+
+	<!-- Home -->
+    <div id="particles-js"></div><script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> 
+<div class="home-slide">
+    <div class="overlay-pattern">
+      <div class="para-slide">
+        <div class="pre-para invisible">Lets</div>
+        <div class="para">CYBER </div>
+        <div class="digm">digm</div>
+        
+        <div class="post-para">&nbsp;&nbsp;2019</div>
+        <div class="post-post-para">&nbsp;8
+          <sup style="text-transform: lowercase;">th</sup>-10
+          <sup style="text-transform: lowercase;">th</sup>&nbsp;January</div>
+      </div>
+    </div>
+  </div><br>
+	<!-- /Home -->
+
+	<!-- About -->
+	<div id="about" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="section-title">
+					<h3 class="title"><span>About</span> <span style="color: #dd0a37;">Cyber Cup</span></h3>
+				</div>
+				<!-- /section title -->
+
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<!-- about content -->
+					<div class="about-content">
+						<b><p><span style="color: #dd0a37;">CyberCup</span> is the annual technical festival of Amity University, Noida curated on behalf of the Department of Computer Science of Amity School of Engineering and Technology.
+                  <br>It aims to appeal to the Tech enthusiasts in the form of a series of events enveloping various technological terrains with events such as <span style="color: #dd0a37;">BlendIt </span>for strengthening the designing skills, <span style="color: #dd0a37;">HandsOn</span> to make the participants aware of the latest widgets & gizmos and <span style="color: #dd0a37;">CodeIt</span>, a platform to present their ideas and work along with many others.
+                  <br> Cyber Cup concurrently helps tech fanatics in exploring their capabilities and indulging in competitive contests accompanied by numerous fun elements perpetuating the upbeat spirit of a festival.</p></b>
+					</div>
+					<!-- /about content -->
+
+					<!-- Numbers -->
+                  
+					<div id="numbers">
+						 <!-- row --><div class="no">
+						<div class="row">
+							<!-- number --> 
+							<div id="no1" class="col-md-3 col-sm-3 col-xs-6">
+								<div class="number">
+									<h3><span class="counter" data-from="0" data-to="8" data-speed="1500">0</span>+</h3>
+									<p>EVENTS</p>
+								</div>
+                            </div>
+							<!-- /number -->
+
+							<!-- number -->
+							<div id="no2" class="col-md-3 col-sm-3 col-xs-6">
+								<div class="number">
+									<h3><span class="counter" data-from="0" data-to="50" data-speed="1500">0</span>+</h3>
+									<p>COLLEGES</p>
+								</div>
+							</div>
+							<!-- /number -->
+
+							<!-- number -->
+							<div id="no2" class="col-md-3 col-sm-3 col-xs-6">
+								<div class="number">
+									<h3>₹ <span class="counter" data-from="0" data-to="1" data-speed="1500">0</span> LAC</h3>
+									<p>WORTH PRIZES TO BE WON</p>
+								</div>
+                            </div>
+							<!-- /number -->
+
+							<!-- number -->
+							<div id="no3" class="col-md-3 col-sm-3 col-xs-6">
+								<div class="number">
+									<h3><span class="counter" data-from="0" data-to="20" data-speed="1500">0</span>+</h3>
+									<p>SCHOOLS</p>
+								</div>
+							</div>
+							<!-- /number -->
+						</div>
+						<!-- /row -->
+                        </div>
+					<!-- /Numbers -->
+                    </div></div></div>
+			
+			<!-- row -->
+		</div>
+		<!-- /container -->
+	</div>
+    
+	<!-- /About -->
+
+	
+	<!--<div id="galery">
+		
+		<div class="container">
+			<div class="row">
+				
+				<div id="galery-owl" class="owl-carousel owl-theme">
+
+					<div class="galery-item">
+						<img src="./img/event1.jpg" alt="a">
+					</div>
+					
+					<div class="galery-item">
+						<img src="./img/event1.jpg" alt="">
+					</div>
+					
+					<div class="galery-item">
+						<img src="./img/galery03.jpg" alt="">
+					</div>
+					
+				</div>
+			
+			</div>
+			
+		</div>
+
+	</div>
+--><div id="events">
+    <div class="section-title">
+					<h3 class="title"><span style="color: #dd0a37;">E</span>vents</span></h3>
+				</div>
+			
+    <ul id="rig">
+    <li>
+        <div class="rig-cell" data-toggle="modal" data-target="#eventpopup1">
+            <img class="rig-img" src="img/cyber%20cup%20j.png">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Lorem Ipsum Dolor</span>
+            <div class="hvrbox-layer_top">
+		<div class="hvrbox-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor ligula porttitor, lacinia sapien non.</div>
+	</div>
+        </div>
+    </li>
+    <li>
+        <div class="rig-cell" data-toggle="modal" data-target="#eventpopup2">
+            <img class="rig-img" src="img/code-it.png" >
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Consectetur Adipiscing</span>
+        </div>
+    </li>
+    <li>
+      <div class="rig-cell" data-toggle="modal" data-target="#eventpopup3">
+            <img class="rig-img" src="img/hackathon.png">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Vivamus ut Felis</span>
+        </div>
+    </li>
+    <li>
+        <div class="rig-cell" data-toggle="modal" data-target="#eventpopup4">
+            <img class="rig-img" src="img/Hands-ON.png">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Curabitur tempus</span>
+        </div>
+    </li>
+    <li>
+        <div class="rig-cell" data-toggle="modal" data-target="#eventpopup5">
+            <img class="rig-img" src="img/TechWizard.png">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Sed et nunc luctus</span>
+        </div>
+    </li>
+    <li>
+        <div class="rig-cell" data-toggle="modal" data-target="#eventpopup6">
+            <img class="rig-img" src="img/Blendit.png">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Suspendisse tellus</span>
+        </div>
+    </li>
+    <li>
+        <div class="rig-cell" data-toggle="modal" data-target="#eventpopup7">
+            <img class="rig-img" src="img/TechWizard.png">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">pellentesque odio</span>
+        </div>
+    </li>
+    <li>
+         <div class="rig-cell" data-toggle="modal" data-target="#eventpopup8">
+            <img class="rig-img" src="img/hackathon.png">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Nam euismod</span>
+        </div>
+    </li>
+ 
+
+</ul></center>
+    </div>
+  </div>
+
+  
+  </div></div>
+
+
+
+
+	<!-- Video CTA -->
+	<div id="video-cta" class="video1">
+		<!-- background image -->
+        <div class="section-bg" style="background-image:url(img/bg1.jpg)" data-stellar-background-ratio="0.5"> 
+		</div>
+		<!-- /background image -->
+
+		<!-- container -->
+		<div class="container">
+            <div class="videobox"> <div class="section-title"><div style="margin-bottom: -40px ; margin-left: -10px;">
+                 <h3 class="title"><span style="color: #dd0a37;">Video</span><span style="color: white">Gallery</span></h3></div></div>
+				
+			<!-- row -->
+			<div class="row">
+				<!-- cta content -->
+				<div class="col-md-8 col-md-offset-2">
+					<div class="cta-content text-center">
+						
+							
+                           
+			<div style="margin-left: -50px;align-self: center;">	 <ul id="rig">
+    <li>			
+                        
+				
+					   </a> 
+          <div style="margin-left: 20px"> <a width data-fancybox="gallery" href="video.mp4">
+    <img class="rig-img" src="img/TechWizard.png">
+              </a></div></li>
+                    
+                     <li>			
+                        
+					
+					   </a> 
+          <div style="margin-left: 20px"> <a width data-fancybox="gallery" href="video.mp4">
+    <img class="rig-img" src="img/TechWizard.png">
+              </a></div></li>
+            
+             <li>			
+                        
+					
+					   </a> 
+          <div style="margin-left: 20px"> <a width data-fancybox="gallery" href="video.mp4">
+    <img class="rig-img" src="img/TechWizard.png">
+              </a></div></li>
+
+  <li>			
+                        
+					
+					   </a> 
+          <div style="margin-left: 20px"> <a width data-fancybox="gallery" href="video.mp4">
+    <img class="rig-img" src="img/TechWizard.png">
+              </a></div></li>
+
+  <li>			
+                        
+					
+					   </a> 
+          <div style="margin-left: 20px"> <a width data-fancybox="gallery" href="video.mp4">
+    <img class="rig-img" src="img/TechWizard.png">
+              </a></div></li>
+
+  <li>			
+                        
+					
+					   </a> 
+          <div style="margin-left: 20px"> <a width data-fancybox="gallery" href="video.mp4">
+    <img class="rig-img" src="img/TechWizard.png">
+              </a></div></li>
+
+
+ <li>			
+                        
+					
+					   </a> 
+          <div style="margin-left: 20px"> <a width data-fancybox="gallery" href="video.mp4">
+    <img class="rig-img" src="img/TechWizard.png">
+              </a></div></li>
+
+
+  <li>			
+                        
+					
+					   </a> 
+          <div style="margin-left: 20px"> <a width data-fancybox="gallery" href="video.mp4">
+    <img class="rig-img" src="img/TechWizard.png">
+              </a></div></li>
+            </div>
+</ul></div>    
+					</div>
+				</div>
+				<!-- /cta content -->
+			</div>
+			<!-- /row -->
+		</div></div>
+		<!-- /container -->
+	</div>
+	<!-- /Video CTA -->
+
+	<!-- Event Schedule -->
+	<div id="schedule" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="section-title">
+					<h3 class="title"><span>Event</span> <span style="color: #dd0a37;">Schedule</span></h3>
+				</div>
+				<!-- /section title -->
+
+				<div class="col-md-8 col-md-offset-2">
+
+					<div class="events-wrapper">
+						<!-- event -->
+						<div class="event">
+							<div class="event-day">
+								<div>
+									<span class="day">15</span>
+									<span class="year">Feb, 2018</span>
+								</div>
+							</div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">His id altera fabellas facilisis. Has eros assueverit cu</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-hour"></div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">Perpetua consectetuer definitiones id sea, mei utinam eripuit ne</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-hour"></div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">At mucius deserunt delicatissimi eam, labitur detraxit ut sit</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-day">
+								<div>
+									<span class="day">16</span>
+									<span class="year">Feb, 2018</span>
+								</div>
+							</div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">His id altera fabellas facilisis. Has eros assueverit cu</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-hour"></div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">At mucius deserunt delicatissimi eam, labitur detraxit ut sit</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-day">
+								<div>
+									<span class="day">17</span>
+									<span class="year">Feb, 2018</span>
+								</div>
+							</div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">His id altera fabellas facilisis. Has eros assueverit cu</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-hour"></div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">At mucius deserunt delicatissimi eam, labitur detraxit ut sit</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+					</div>
+
+					<div class="download-btn">
+						<a href="#" class="main-btn">Download Schedule</a>
+					</div>
+
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Event Schedule -->
+
+	<!-- Speakers -->
+	<div id="speakers" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="section-title">
+					<h3 class="title"><span>Our</span> <span style="color: #dd0a37;">Speakers</span></h3>
+				</div>
+				<!-- section title -->
+
+				<!-- speaker -->
+				<div class="col-md-4 col-sm-6">
+					<div class="speaker" data-toggle="modal" data-target="#speaker-modal-1">
+						<div class="speaker-img">
+							<img src="./img/speaker01.jpg" alt="">
+						</div>
+						<div class="speaker-body">
+							<div class="speaker-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-instagram"></i></a>
+								<a href="#"><i class="fa fa fa-linkedin"></i></a>
+							</div>
+							<div class="speaker-content">
+								<h2>John Doe</h2>
+								<span>Manager, CEO</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /speaker -->
+
+				<!-- speaker -->
+				<div class="col-md-4 col-sm-6">
+					<div class="speaker" data-toggle="modal" data-target="#speaker-modal-1">
+						<div class="speaker-img">
+							<img src="./img/speaker02.jpg" alt="">
+						</div>
+						<div class="speaker-body">
+							<div class="speaker-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-instagram"></i></a>
+								<a href="#"><i class="fa fa fa-linkedin"></i></a>
+							</div>
+							<div class="speaker-content">
+								<h2>John Doe</h2>
+								<span>Manager, CEO</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /speaker -->
+
+				<!-- speaker -->
+				<div class="col-md-4 col-sm-6">
+					<div class="speaker" data-toggle="modal" data-target="#speaker-modal-1">
+						<div class="speaker-img">
+							<img src="./img/speaker03.jpg" alt="">
+						</div>
+						<div class="speaker-body">
+							<div class="speaker-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-instagram"></i></a>
+								<a href="#"><i class="fa fa fa-linkedin"></i></a>
+							</div>
+							<div class="speaker-content">
+								<h2>John Doe</h2>
+								<span>Manager, CEO</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /speaker -->
+
+				<!-- speaker modal -->
+				<div id="speaker-modal-1" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											<img src="./img/speaker-info.jpg" alt="">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<h2 class="speaker-name">John Doe</h2>
+											<span class="speaker-job">- Manager, CEO</span>
+
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+												irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+											<div class="speaker-website">
+												<h4>Website</h4>
+												<a href="#">www.johndoe.com</a>
+											</div>
+
+											<div class="speaker-social">
+												<h4>Social Profile</h4>
+												<a href="#"><i class="fa fa-facebook"></i></a>
+												<a href="#"><i class="fa fa-twitter"></i></a>
+												<a href="#"><i class="fa fa-instagram"></i></a>
+												<a href="#"><i class="fa fa fa-linkedin"></i></a>
+											</div>
+
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /speaker modal -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Speakers -->
+
+	<!-- Sponsors -->
+	<div id="sponsors" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="section-title">
+					<h3 class="title"><span>Our</span> <span style="color: #dd0a37;">Sponsors</span></h3>
+				</div>
+				<!-- /section title -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" id="sponsor1" class="sponsor">
+						<img src="./img/sponsor1.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" id="sponsor1" class="sponsor">
+						<img src="./img/sponsor1.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#"  id="sponsor1" class="sponsor">
+						<img src="./img/sponsor2.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" id="sponsor1" class="sponsor">
+						<img src="./img/sponsor3.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" id="sponsor1" class="sponsor">
+						<img src="./img/sponsor4.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" id="sponsor1" class="sponsor">
+						<img src="./img/sponsor5.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" id="sponsor1" class="sponsor">
+						<img src="./img/sponsor6.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" id="sponsor1" class="sponsor">
+						<img src="./img/sponsor7.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Sponsors -->
+
+	<!-- CTA -->
+	<div id="cta" class="section">
+		<!-- background image -->
+		<div class="section-bg" style="background-image:url(./img/background03.jpg)" data-stellar-background-ratio="0.5"></div>
+		<!-- /background image -->
+
+		<!-- container -->
+		<div class="container">
+			<!-- container -->
+			<div class="row">
+				<!-- cta content -->
+				<div class="col-md-8 col-md-offset-2">
+					<div class="cta-content text-center">
+						<h2>Get Ticket Now!</h2>
+						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<a href="#" class="main-btn">Buy Ticket</a>
+					</div>
+				</div>
+				<!-- /cta content -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /CTA -->
+
+	<!-- Contact -->
+	
+<div id="Map" class="ssn-map">
+    <!-- New Edit -->
+    <div id="contact-us" style="background:black; float: right; align: right; height: 100%; width:50%;padding-bottom: 5px;">
+      <b>
+        <br><div class="section-title">
+     <h3 class="title"><span style="color: white;">Contact</span> <span style="color: #dd0a37;">Info</span></h3>   
+          </div>
+          <div class="contact">
+						<h3>Address</h3>
+						<p>2635 Simons Hollow Road, NEW YORK</p>
+					</div>
+          <div class="contact">
+						<h3>Phone</h3>
+						<p>570-751-2415</p>
+					</div>
+          <div class="contact">
+						<h3>Email</h3>
+              <a href="#">event@support.com</a>
+					</div>
+          <div class="col-md-4 col-md-push-4">
+					<div class="contact-social">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-google-plus"></i></a>
+                        <br><br>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-pinterest"></i></a>
+						<a href="#"><i class="fa fa fa-linkedin"></i></a>
+					</div>
+				</div>
+    </div>
+
+    <div class="mapouter">
+      <div class="gmap_canvas">
+        <iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Amity%20University%20%2C%20Noida&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="50%" height="300"></iframe>
+        <a href="https://www.pureblack.de"></a>
+      </div>
+	<!-- Footer -->
+	<footer id="footer">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+
+				<!-- footer logo -->
+				<div class="col-md-4 col-md-push-4">
+					<div class="footer-brand">
+						<a class="logo" href="index.html">
+							<img class="logo-img" src="./img/logo.png" alt="logo">
+						</a>
+					</div>
+				</div>
+				<!-- /footer logo -->
+
+				<!-- contact social -->
+				
+				<!-- /contact social -->
+
+			
+
+			</div>
+			<!-- /row -->
+		</div>
+  
+      <style>
+          .contact-us{color:#fff; text-transform: uppercase; width: 95%; height:0px; position: relative; bottom: 138px;
+          margin-top: 100px;}
+           .contact-us{align: right;  display: block; height: 400px; width: 359px; bottom: 110px; font-size: 1em;}
+        .mapouter {
+          text-align: right;
+          float: left;
+          height: 100%;
+          width: 50%;
+        }
+
+        .gmap_canvas {
+          overflow: hidden;
+          background: none !important;
+          height: 100%;
+          width: 100%;
+        }
+      </style>
+    </div>
+
+
+
+		<!-- /container -->
+	</footer>
+	<!-- /Footer -->
+
+	<!-- jQuery Plugins -->
+        
+        
+   <!-- event 1 pop -->
+<div id="eventpopup1" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<br>
+                            
+                            <button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+                            
+                            
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											 <div style="margin-left: 20px"> <a width data-fancybox="gallery" href="video.mp4">
+    <img src="./img/cyber%20cup%20j.png">
+              </a></div>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<br><h2 class="speaker-name">Cyber Cup Junior</h2>
+											
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+												irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+										
+
+											<a href="#" class="square_btn">REGISTER</a>
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- /event 1 pop -->     
+        
+    <!-- event 2 pop -->
+<div id="eventpopup2" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<br>
+                            
+                            <button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+                            
+                            
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											<img src="./img/code-it.png" alt="">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<br><h2 class="speaker-name">CodeIt</h2>
+											
+
+											<p>“Truth can only be found in one place: the code.”<br><br>
+A programmer&#39;s code is the symbol of his creative intuitions as well as their aptitude.<br>
+So why not allow your creativity to bloom and let your hard work pay off?
+<br><br>
+For all the budding developers out there, here&#39;s a chance for showcasing your self-created apps,
+games and websites to stand out in the crowd and thrive thoroughly into the fascinating world of
+code with CodeIT.
+<br><br>“CodeIT; the perfect platform for the budding developers”<br><br>                                               
+<h4>Rules and Regulations :</h4>
+1. Participants need to present an app, site or game that they have already prepared beforehand.<br>
+2. Maximum time for the presentation will be 5 minutes.<br>
+3. Unruly behaviour with coordinators, volunteers or other teams would not be tolerated and would result in direct disqualification.<br>
+4. The decision by the judges shall be considered as final and cannot be questioned.<br>
+5. Use of unfair means will lead to direct disqualification.<br><br>
+
+<h4>Judging Criteria :-</h4>
+
+1. Ideas and Creativity<br>
+2. Coding Skills<br>
+3. Presentation of Ideas<br>
+</p>
+
+										
+
+											<a href="#" class="square_btn">REGISTER</a>
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- /event 2 pop -->
+        
+        
+        
+   <!-- event 3 pop -->
+<div id="eventpopup3" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<br>
+                            
+                            <button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+                            
+                            
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											<img src="./img/hackathon.png" alt="">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<br><h2 class="speaker-name">Hackathon</h2>
+											
+											<p>All your life you’ve been thinking and this is your chance to bring all of them to life . Hackathon is
+one of our biggest and most promising event of CYBER CUP ’19 . It is an onsite competitive
+programming contest where the participants don’t just need to solve the problems but write their
+code using the minimum number of characters . The smartest solution wins it all !<br><br>
+Entries will be judged on the use of the full analytics process- incorporating not only the technical
+analysis and solution, but also the understanding of the business problem. It must hold clarity,
+technical strength of methodology and uniqueness of approach .<br><br>
+<h4>TIMELINE</h4> The timeline will be segregated into different phases which are:<br>
+<u>Phase 1:</u> All participants will be provided with multiple themes. they will have to choose one out of
+the many themes and develop a prototype with the same.<br>
+<u>Phase 2:</u> Evaluation of the progress of the prototype of the participants<br>
+<u>Phase 3:</u> The participants will have to present the complete prototype for final evaluation.<br>
+<u>Phase 4:</u> Segregation of the teams into top 10.<br>
+<u>Phase 5:</u>Pitching by top 10 teams.<br><br>
+<h4>RULES</h4>
+<h5>Team Size:</h5>
+At max 4 members in a team. Lone wolves are welcome too, we might team you up during the hackathon.<br><br>
+<h5>Originality of idea :</h5> idea should be unique and out of the box thinking which means already existing vs new solution<br><br>
+<h5>Final Decision:</h5>
+The ultimate decision regarding awards and prizes lies within the hands of judges.<br><br>
+<h5>Equipment:</h5>
+Participants have to bring their own laptops. Extension cords and internet access will be provided.<br><br>
+<h4>JUDGING CRITERIA</h4>
+1. JUDGING CRITERIA IN THE SECOND PHASE WILL BE BASED UPON YOUR APPROACH TO THE PROBLEM , DESIGN AND CREATIVE SOLUTION<br>
+2. USEFULNESS AND USABILITY<br>
+3. RELEVANCE</p>
+
+										
+
+											<a href="#" class="square_btn">REGISTER</a>
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- /event 3 pop -->  
+        
+        
+        
+        
+           <!-- event 4 pop -->
+<div id="eventpopup4" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<br>
+                            
+                            <button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+                            
+                            
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											<img src="./img/Hands-ON.png" alt="">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<br><h2 class="speaker-name">Hands ON</h2>
+										
+
+											<p>The quickest way of understanding and feeling inspired by its creative potential is to get Hands-On.<br><br>
+Hands-On is a platform to experience the most incredible consumer tech, gadgets and gizmos all
+under one roof. It will feature the latest products, latest technology, great deals and a wealth of
+knowledge and insights into the future of technology and innovation.<br><br>
+A meeting place where buyers meet sellers, seekers meet experts, experts share substantial ideas
+and extraordinary wisdom.<br><br>
+Join us to understand how our world will be changed with the introduction to these contemporary
+technologies.<br><br>
+Through the exhibition you will learn:<br><br>
+ About Virtual and Augmented Development Studios.<br>
+ Digital Competence Space for new gadgets in the 21 st Century.<br>
+ Enhance your emphatic and imaginative capacities.<br>
+ Develop strategic plans for new technologies and their implementation in real life.<br>
+So be prepared to be inspired, amazed and educated. Stay tuned for more info.</p>
+
+										
+
+											<a href="#" class="square_btn">REGISTER</a>
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- /event 4 pop -->
+        
+        
+           <!-- event 5 pop -->
+<div id="eventpopup5" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<br>
+                            
+                            <button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+                            
+                            
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											<img src="./img/TechWizard.png" alt="">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<br><h2 class="speaker-name">TechWizard</h2>
+											
+
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+												irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+										
+
+											<a href="#" class="square_btn">REGISTER</a>
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- /event 5 pop -->
+        
+           <!-- event 6 pop -->
+<div id="eventpopup6" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<br>
+                            
+                            <button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+                            
+                            
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											<img src="./img/Blendit.png" alt="">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<br><h2 class="speaker-name">BlendIt</h2>
+											
+
+											<p>Photoshop gives life to an images, colour to one&#39;s thoughts and platform for one&#39;s imagination.<br><br>
+
+All the modern day virtual world Picassos, adjust your LCD canvasses and get ready to splash colours
+away from your digital colour palette.<br><br>
+Feed the fire for the artistic genius in you and create your own digital masterpiece. BLENDIT brings
+to you the perfect platform to showcase your talent and test your Photoshop skills.,<br><br>
+
+<h3>BLENDIT will comprise of two rounds-</h3>
+
+<h5>•Round 1</h5>
+Participants will be given an image to work their magic on with full creative liberty.<br>
+<h5>•Round 2</h5>
+Participants will be provided with multiple images and a choice to pick up any three to use together
+to form a single image with an even more creative caption suitable to the final image.<br><br>
+
+<h4>RULES :</h4>
+
+1) Participants will be judged on the basis of these two rounds<br>
+2) Decisions will be final subject to judges result, with no provision for any kind of debate or
+argument.<br>
+3) Unruly behaviour with coordinators, volunteers or other team members will not be tolerated and
+will result in direct disqualification.<br><br>
+
+<h4>JUDGING CRITERIA :</h4>
+1. Photoshop skills<br>
+2. Creativity<br>
+3. Technique<br>
+4. Originality</p>
+
+										
+
+											<a href="#" class="square_btn">REGISTER</a>
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- /event 6 pop -->
+        
+        
+        
+        
+           <!-- event 7 pop -->
+<div id="eventpopup7" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<br>
+                            
+                            <button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+                            
+                            
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											<img src="./img/cyber%20cup%20j.png" alt="">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<br><h2 class="speaker-name">Cyber Cup Junior</h2>
+										
+
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+												irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+										
+
+											<a href="#" class="square_btn">REGISTER</a>
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- /event 7 pop -->
+        
+        
+        
+           <!-- event 8 pop -->
+<div id="eventpopup8" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<br>
+                            
+                            <button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+                            
+                            
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											<img src="./img/cyber%20cup%20j.png" alt="">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<br><h2 class="speaker-name">Cyber Cup Junior</h2>
+										
+
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+												irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+										
+
+											<a href="#" class="square_btn">REGISTER</a>
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- /event 8 pop -->
+        
+        
+        
+        <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+  <script src="js/jquery.fancybox.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.fancybox').fancybox({
+        padding   : 0,
+        maxWidth  : '100%',
+        maxHeight : '100%',
+        width   : 560,
+        height    : 315,
+        autoSize  : true,
+        closeClick  : true,
+        openEffect  : 'elastic',
+        closeEffect : 'elastic'
+      });
+    });
+  </script>
+        
+        
+        
+        
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+  <!--<script src="js/plugins.js"></script>-->
+  
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script src="js/google-map.js"></script>
+	<script src="js/jquery.countTo.js"></script>
+	<script src="js/main.js"></script>
+  <script src="https://vjs.zencdn.net/7.2.3/video.js">
+    </script>
+<script src="js/jquery.min.js"></script>
+
+<script src="dist/jquery.fancybox.min.js"></script>
+     
+<script src="js/load.js"></script>
+ <script>
+         particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+        </script>
+</body>
+
+</html>
